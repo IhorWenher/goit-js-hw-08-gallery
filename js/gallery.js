@@ -63,11 +63,9 @@ function closeModal() {
 
 /* Перелистування дороблю
 const previousImage = document.querySelector('[data-action="previous-image"]');
-
 previousImage.addEventListener('click', previousImage);
 
 const nextImage = document.querySelector('[data-action="next-image"]')
-
 nextImage.addEventListener('click', nextImage);
 
 

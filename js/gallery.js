@@ -8,7 +8,6 @@ const imagesMarkup = createImageCardsMarkup(images);
 
 /* Разметка*/
 galleryContainer.insertAdjacentHTML('beforeend', imagesMarkup);
-galleryContainer.addEventListener('click', onGalleryContainerClick)
 
 function createImageCardsMarkup(images) {
     return images.map(({ preview, original, description}) => {
@@ -31,19 +30,22 @@ function createImageCardsMarkup(images) {
     .join('');
 }
 
+galleryContainer.addEventListener('click', onGalleryContainerClick);
+
 
 function onGalleryContainerClick(evt) {
-    const image = document.querySelector('.gallery__image');
-    const link = document.querySelector('.gallery__link');
+    const targetImage = evt.target;
+    const targetLink = targetImage.parentNode
+
     if (!evt.target.classList.contains('gallery__image')) {
        return;
     }
 
     evt.preventDefault();
     lightboxContainer.classList.add('is-open');
-    lightboxImage.setAttribute('src', `${link.href}`);
-    lightboxImage.setAttribute('alt', `${image.alt}`);
-    
+    lightboxImage.setAttribute('src', `${targetLink.href}`);
+    lightboxImage.setAttribute('alt', `${targetImage.alt}`);
+    console.log(evt.target)
 }
 
 
